@@ -1,1 +1,2 @@
-# cprg306-assignments
+CPRG306 Assignments
+This is the repository for CPRG306 assignment
