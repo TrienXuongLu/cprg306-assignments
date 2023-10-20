@@ -1,6 +1,5 @@
 "use client";
 
-import { ca } from "date-fns/locale";
 import Item from "./item";
 import itemsList from "./items.json";
 import React, {useState} from "react";
@@ -20,34 +19,34 @@ export default function ItemList() {
         setSortBy("group");
     }
 
-    const groupList = itemsList.reduce((final, current) => {
-        const cat = current.category;
-        if(final[cat] == null) {
-            final[cat] = [];
-        }
-        final[cat].push(current);
-        return final;
-    }, {})
+    // const groupList = itemsList.reduce((final, current) => {
+    //     const cat = current.category;
+    //     if(final[cat] == null) {
+    //         final[cat] = [];
+    //     }
+    //     final[cat].push(current);
+    //     return final;
+    // }, {})
 
-    const categoryList = Object.entries(groupList);
+    // const categoryList = Object.entries(groupList);
 
-    const categoryGroup = [];
-    const categoryObject = [];
+    // const categoryGroup = [];
+    // const categoryObject = [];
 
-    const categoryListValue = categoryList.forEach((values) => {
-        return values.map((item) => {
-            console.log(item);
-            return categoryGroup.push(item);
-        })
-    });
+    // const categoryListValue = categoryList.forEach((values) => {
+    //     return values.map((item) => {
+    //         console.log(item);
+    //         return categoryGroup.push(item);
+    //     })
+    // });
 
-    for(let i = 0; i < categoryGroup.length; i + 2) {
-        const category = categoryGroup[i];
-        const categoryValue = categoryGroup[i + 1];
-        categoryObject.push({category, categoryValue});
-    }
+    // for(let i = 0; i < categoryGroup.length; i + 2) {
+    //     const category = categoryGroup[i];
+    //     const categoryValue = categoryGroup[i + 1];
+    //     categoryObject.push({category, categoryValue});
+    // }
 
-    console.log(categoryObject);
+    // console.log(categoryObject);
 
     const displayedList = sortBy == "name" ? itemsList.sort((a, b) => a.name.localeCompare(b.name)) : itemsList.sort((a, b) => a.category.localeCompare(b.category));
 
@@ -64,12 +63,13 @@ export default function ItemList() {
                 {sortBy != "group" ? displayedList.map((item) => {
                     console.log(item);
                     return <Item key={item.id} name={item.name} quantity={item.quantity} category={item.category} />
-                }) : "Couldn't solve this issue"
+                }) : ""
                 }
             </main>
         </>
     )
 }
+
 
 //Run this lines of code got crashed
 // categoryObject.map((item) => {
