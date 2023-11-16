@@ -92,8 +92,6 @@ export default function MealIdeas({selectedItemName}) {
                         <div className="border border-lime-500 my-2 rounded" key={meal.idMeal} onClick={() => onSelectMealItem(meal.idMeal)}>
                             <p>{meal.strMeal}</p>
                             {mealIngredient != null && mealIngredient.length > 0 && mealIngredient.idMeal === mealSelect.idMeal ? (mealEntries.map(([key, value], index) => {
-                                console.log(mealIngredient);
-                                console.log(mealSelect);
                                 if(key.startsWith("strMeasure")) {
                                     return (
                                         <div className="" key={index}>
